@@ -113,7 +113,6 @@ const connectDb = async () => {
     );
   } catch (error) {
     console.log("MONGODB connection Failed:", error);
-    process.exit(1);
   }
 };
 

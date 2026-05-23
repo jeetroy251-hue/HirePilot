@@ -1,5 +1,5 @@
 import express from 'express';
-import connectDB from './config/connectDB.js';
+import connectDB from './config/connectDb.js';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -13,23 +13,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = [
-    'https://ai-interview-agent-client-bgax.onrender.com',
-    'https://ai-interview-agent-1-0h0w.onrender.com',
-    'http://localhost:5173',
-    'http://localhost:5174'
-];
-
 app.use(cors({
-    origin: function(origin, callback) {
-        // allow requests with no origin (like mobile apps or curl)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            return callback(null, true);
-        } else {
-            return callback(new Error('CORS policy: This origin is not allowed'));
-        }
-    },
+    origin: true,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
@@ -37,12 +22,23 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+    res.json({ status: "ok", message: "Interview Edge API is running" });
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);  
 app.use("/api/interview", interviewRouter); 
 app.use("/api/payment", PaymentRouter); 
 
-app.listen(PORT, () => {
-    console.log(`Server running on PORT ${PORT}`);
-    connectDB();
-});
+// Connect to MongoDB (cached by Mongoose across serverless warm starts)
+connectDB().catch(err => console.error("MongoDB connection failed:", err));
+
+// Only start the server when running locally (not on Vercel)
+if (process.env.VERCEL !== '1') {
+    app.listen(PORT, () => {
+        console.log(`Server running on PORT ${PORT}`);
+    });
+}
+
+export default app;
