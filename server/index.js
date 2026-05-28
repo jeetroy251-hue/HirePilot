@@ -14,8 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
-    'https://ai-interview-agent-client-bgax.onrender.com',
-    'https://ai-interview-agent-1-0h0w.onrender.com',
+    
     'http://localhost:5173',
     'http://localhost:5174'
 ];

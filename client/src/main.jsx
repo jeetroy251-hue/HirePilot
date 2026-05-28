@@ -5,13 +5,16 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
+import { TransitionProvider } from "./services/transitionProvider";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
+      <Provider store={store}>
+        <TransitionProvider>
+          <App />
+        </TransitionProvider>
+      </Provider>
     </BrowserRouter>
   </StrictMode>,
 )
