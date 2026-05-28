@@ -10,6 +10,7 @@ import InterviewPage from './pages/InterviewPage.jsx'
 import InterviewHistory from './pages/InterviewHistory.jsx'
 import Pricing from './pages/Pricing.jsx'
 import InterviewReport from './pages/InterviewReport.jsx'
+import TransitionProvider from './services/transitionProvider.jsx'
 
 export const serverURL = (import.meta.env.VITE_SERVER_URL || "").replace(/\/$/, "")
 
@@ -34,6 +35,7 @@ function App() {
   getUser();
   },[dispatch])
   return (
+    <TransitionProvider>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/auth' element={<Auth />} />
@@ -42,6 +44,7 @@ function App() {
       <Route path='/pricing' element={<Pricing />} />
       <Route path='/report/:id' element={<InterviewReport />} />
     </Routes>
+    </TransitionProvider>
   )
 }
 

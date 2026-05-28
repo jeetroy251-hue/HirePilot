@@ -13,7 +13,6 @@ import {
 } from "react-icons/bs"
 import { HiSparkles } from "react-icons/hi"
 import AuthModel from '../components/AuthModel'
-import { useTransition } from "next-transition-router";
 import hrImg from "../assets/HR.png"
 import techImg from "../assets/tech.png"
 import confidenceImg from "../assets/confi.png"
@@ -22,14 +21,17 @@ import evalImg from "../assets/ai-ans.png"
 import resumeImg from "../assets/resume.png"
 import pdfImg from "../assets/pdf.png"
 import analyticsImg from "../assets/history.png"
+import { useTransitionNavigate } from '../services/transitionProvider'
 
 function Home() {
   const [showAuth, setShowAuth] = React.useState(false)
   const navigate = useNavigate()
   const { userData } = useSelector((state) => state.user)
-  const { runTransition } = useTransition()
+
+  const navigateWithTransition = useTransitionNavigate()
 
   return (
+    
     <div className='min-h-screen bg-[#f3f3f3] flex flex-col'>
       <Navbar />
 
@@ -65,14 +67,14 @@ function Home() {
               Role-based mock interview with smart follow-ups, adaptive difficulty and real-time performance evaluation.
             </motion.p>
             <div className='flex flex-wrap justify-center gap-4 mt-18'>
+              
               <motion.button
-                onClick={async () => {
+                onClick={() => {
                   if (!userData) {
                     setShowAuth(true)
                     return
                   }
-                  await runTransition()
-                  navigate('/interview')
+                  navigateWithTransition('/interview')
                 }}
                 whileHover={{ opacity: 0.9, scale: 1.03 }}
                 whileTap={{ opacity: 1, scale: 0.98 }}
@@ -80,6 +82,7 @@ function Home() {
               >
                 start Interview
               </motion.button>
+             
 
               <motion.button
                 onClick={() => {
@@ -87,7 +90,7 @@ function Home() {
                     setShowAuth(true)
                     return
                   }
-                  navigate('/history')
+                  navigateWithTransition('/history')
                 }}
                 whileHover={{ opacity: 0.9, scale: 1.03 }}
                 whileTap={{ opacity: 1, scale: 0.98 }}
@@ -231,6 +234,7 @@ function Home() {
       <Footer />
       {showAuth && <AuthModel onClose={() => setShowAuth(false)} />}
     </div>
+     
   )
 }
 
