@@ -19,16 +19,16 @@ function Auth({isModel = false, onClose}) {
 
   const handleGoogleAuth = async () => {
     try {
-      const response = await signInWithPopup(auth, provider);
+      const response = await signInWithPopup(auth, provider); // Ye Firebase ka function hai jo Google login popup open karta hai aur successful authentication ke baad user object return karta hai.
       let User = response.user
       let name = User.displayName
       let email = User.email
       
-      const result = await axios.post(serverURL + "/api/auth/google",
+      const result = await axios.post(serverURL + "/api/auth/google", // user detail sgoes to backend , Backend MongoDB me user create/find karta hai, JWT generate karta hai aur application-specific data (credits, history, subscription) manage karta hai.
         {name, email}, 
         {withCredentials: true}
       );
-      dispatch(setUserData(result.data));
+      dispatch(setUserData(result.data)); // redux me user details store 
     } catch (error) {
       console.error(error);
       dispatch(setUserData(null));
@@ -62,16 +62,16 @@ function Auth({isModel = false, onClose}) {
           <div className='bg-black text-white p-2 rounded-lg'>
             <FaRobot size={18} />
           </div>
-          <h2 className='font-semibold text-lg'>InterviewEdge</h2>  
+          <h2 className='font-semibold text-lg'>HirePilot</h2>  
         </div>    
-        <h1 className='text-2xl sm:text-3xl font-semibold text-center leading-snug mb-4'>Continue with InterviewEdge{" "}
+        <h1 className='text-2xl sm:text-3xl font-semibold text-center leading-snug mb-4'>Continue with HirePilot{" "}
           <span className='bg-green-100 text-green-600 px-3 py-1 rounded-full inline-flex items-center gap-2 mt-2 sm:mt-0'>
             <IoSparkles size={16} />
             AI Smart Interview
           </span>
         </h1>
         <p className='text-gray-500 text-center text-sm sm:text-base leading-relaxed mb-8'>
-          Sign in to your InterviewEdge account to access your personalized dashboard, AI powered mock interviews, track your progress, and and unlock detailed performance insights. 
+          Sign in to your HirePilot account to access your personalized dashboard, AI powered mock interviews, track your progress, and and unlock detailed performance insights. 
         </p>
         <motion.button 
         onClick={handleGoogleAuth}
