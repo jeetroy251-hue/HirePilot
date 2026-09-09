@@ -1,14 +1,14 @@
-# 🤖 HirePilot — AI-Powered Mock Interview Platform
+ 🤖 HirePilot — AI-Powered Mock Interview Platform
 
 AI-Interview-Agent, branded as **HirePilot**, is a full-stack AI-powered mock interview platform designed to help candidates practice interviews in a realistic environment.
 
 HirePilot generates personalized interview questions, allows users to answer using their voice, evaluates responses using AI, and provides detailed performance analytics across confidence, communication, correctness, and overall performance.
 
-## 🚀 Live Demo
+ 🚀 Live Demo
 
 🔗 https://hire-pilot-two.vercel.app/
 
-## 💻 GitHub Repository
+💻 GitHub Repository
 
 🔗 https://github.com/jeetroy251-hue/HirePilot
 
@@ -16,7 +16,7 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ![showcase](./screenshots/Showcase_page.png)
 
-## 🚀 What You Can Do With It
+ 🚀 What You Can Do With It
 
 - Sign in easily using your Google account
 - Upload your resume (PDF) to get more relevant questions
@@ -34,9 +34,9 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ---
 
-## 🛠 Tech Stack
+ 🛠 Tech Stack
 
-### Frontend
+ Frontend
 - React 19 (with Vite)
 - React Router
 - Redux Toolkit
@@ -48,7 +48,7 @@ HirePilot generates personalized interview questions, allows users to answer usi
 - jsPDF + jspdf-autotable (PDF generation)
 - Firebase Authentication (Google login)
 
-### Backend
+ Backend
 - Node.js
 - Express 5
 - MongoDB with Mongoose
@@ -59,13 +59,13 @@ HirePilot generates personalized interview questions, allows users to answer usi
 - pdfjs-dist (resume parsing)
 - Axios
 
-### AI
+ AI
 - OpenRouter API
 - Model used: `openai/gpt-4o-mini`
 
 ---
 
-## 📁 Project Structure
+ 📁 Project Structure
 - AI-Interview-Agent/
 
   ├── client/ # Frontend (React app)
@@ -75,7 +75,7 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ---
 
-## ⚙️ How the App Works
+ ⚙️ How the App Works
 
 1. You sign in using Google.
 2. The frontend sends your name and email to the backend.
@@ -101,7 +101,7 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ---
 
-## 📡 API Endpoints
+ 📡 API Endpoints
 
 | Method | Endpoint | Purpose | Auth Required |
 |--------|---------|--------|--------------|
@@ -117,7 +117,7 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ---
 
-## 🔐 Authentication Flow
+ 🔐 Authentication Flow
 
 - Google login is handled on the frontend using Firebase
 - Backend receives user info and generates a JWT
@@ -127,14 +127,14 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ---
 
-## 💾 Database Models
+💾 Database Models
 
-### User
+ User
 - name (required)
 - email (required, unique)
 - credits (default: 100)
 
-### Interview
+ Interview
 - userId
 - role
 - experience
@@ -145,19 +145,17 @@ HirePilot generates personalized interview questions, allows users to answer usi
 - status (Incomplete / Completed)
 - timestamps
 
----
 
-## 💳 Credits System (Simple Logic)
+ 💳 Credits System (Simple Logic)
 
 - Every user starts with **100 credits**
 - Generating one interview costs **50 credits**
 - You can only generate an interview if you have at least **50 credits**
 
----
 
-## 📊 Interview Structure
+ 📊 Interview Structure
 
-### Questions
+Questions
 
 | Question | Difficulty | Time |
 |----------|------------|------|
@@ -167,13 +165,13 @@ HirePilot generates personalized interview questions, allows users to answer usi
 | 4 | Hard | 120 sec |
 | 5 | Very Hard | 120 sec |
 
-### Rules
+ Rules
 
 - If you don’t answer → score = 0
 - If time runs out → score = 0
 - Otherwise → AI evaluates your answer
 
-### Final Report Includes
+ Final Report Includes
 
 - Final Score
 - Average Confidence
@@ -181,11 +179,10 @@ HirePilot generates personalized interview questions, allows users to answer usi
 - Average Correctness
 - Question-wise feedback
 
----
 
-## 🌍 Environment Variables
+🌍 Environment Variables
 
-### Server (.env)
+ Server (.env)
 - RAZORPAY_KEY_ID=your_razorpay_key_id
 - RAZORPAY_KEY_SECRET=your_razorpay_key_secret
 - OPENROUTER_API_KEY=your_openrouter_api_key
@@ -194,19 +191,16 @@ HirePilot generates personalized interview questions, allows users to answer usi
 - MONGODB_URL=your_mongodb_connection_string
 - PORT=5000
 
-### Client (.env)
+ Client (.env)
 - VITE_FIREBASE_APIKEY=your_firebase_key
 - VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
 - VITE_SERVER_URL=http://localhost:5000
 
 
-⚠️ Don’t push real keys to GitHub. Always use placeholders.
 
----
+🧑‍💻 Run Locally
 
-## 🧑‍💻 Run Locally
-
-### Requirements
+ Requirements
 
 - Node.js (LTS)
 - npm
@@ -216,7 +210,7 @@ HirePilot generates personalized interview questions, allows users to answer usi
 
 ---
 
-### Backend Setup
+ Backend Setup
 - cd server
 - npm install
 - npm run dev
@@ -227,7 +221,7 @@ http://localhost:5000
 
 ---
 
-### Frontend Setup
+ Frontend Setup
 - cd client
 - npm install
 - npm run dev
@@ -236,69 +230,62 @@ http://localhost:5000
 Runs on:
 http://localhost:5173
 
----
 
-## 📜 Scripts
+ 📜 Scripts
 
-### Client
+ Client
 - npm run dev
 - npm run build
 - npm run lint
 - npm run preview
 
 
-### Server
+ Server
 - npm run dev
 - npm start
 
 
 ---
 
-## 🖼 Screenshots (Add Your UI Here)
+ 🖼 Screenshots 
 
-> You can replace these with your actual screenshots
-
-### Landing Page
+ Landing Page
 ![Landing](./screenshots/Landing_page.png)
 
-### Login Page
+ Login Page
 ![Login](./screenshots/Login_page.png)
 
-### Interview Setup
+ Interview Setup
 ![Setup](./screenshots/Setup_page.png)
 
-### Interview Screen
+ Interview Screen
 ![Interview](./screenshots/Interview_page.png)
 
-### Report Page
+ Report Page
 ![Report](./screenshots/Report_page.png)
 
-### History Page
+ History Page
 ![History](./screenshots/History_page.png)
 
-### Upgrade Page
+ Upgrade Page
 ![Upgrade](./screenshots/Upgrade_page.png)
 
----
 
-## ⚠️ Known Limitations
+ ⚠️ Known Limitations
 
 - Voice input works best in supported browsers (like Chrome)
 - Needs internet for AI responses
 - Only PDF resumes are supported
 
----
 
-## 🚧 Future Improvements
+ 🚧 Future Improvements
 
 - More interview types
 - Better voice recognition
 - Multi-language support
 - More advanced analytics
 
----
-
-## 🛠 Troubleshooting
+ 🛠 Troubleshooting
 
 - Getting 401 on `/current-user`?
   - That’s normal if you're not logged in
@@ -316,7 +303,7 @@ http://localhost:5173
 
 ---
 
-## 🔒 Security Notes
+ 🔒 Security Notes
 
 - Never expose API keys
 - Use HTTP-only cookies for auth
@@ -324,13 +311,13 @@ http://localhost:5173
 
 ---
 
-## 📄 License
+ 📄 License
 
 
 
 ---
 
-## 👤 Author
+ 👤 Author
 
 Jeet Roy  
 [GitHub](https://github.com/jeetroy251-hue)  
