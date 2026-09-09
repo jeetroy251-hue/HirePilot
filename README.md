@@ -326,11 +326,11 @@ http://localhost:5173
 
 ## 📄 License
 
-Add your license here
+
 
 ---
 
 ## 👤 Author
 
-Akash Chawla  
+Jeet Roy  
 [GitHub](https://github.com/jeetroy251-hue)  
