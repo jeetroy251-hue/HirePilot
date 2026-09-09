@@ -1,6 +1,16 @@
-# 🤖 AI-Interview-Agent ()
+# 🤖 HirePilot — AI-Powered Mock Interview Platform
 
-AI-Interview-Agent, also shown in the UI as **HirePilot**, is a full-stack web application that helps you practice interviews in a realistic way. It uses AI to generate questions, lets you answer using your voice, and gives you detailed feedback on how you performed.
+AI-Interview-Agent, branded as **HirePilot**, is a full-stack AI-powered mock interview platform designed to help candidates practice interviews in a realistic environment.
+
+HirePilot generates personalized interview questions, allows users to answer using their voice, evaluates responses using AI, and provides detailed performance analytics across confidence, communication, correctness, and overall performance.
+
+## 🚀 Live Demo
+
+🔗 https://hire-pilot-two.vercel.app/
+
+## 💻 GitHub Repository
+
+🔗 https://github.com/jeetroy251-hue/HirePilot
 
 ---
 
